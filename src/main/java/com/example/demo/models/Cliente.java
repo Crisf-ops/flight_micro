@@ -32,13 +32,15 @@ public class Cliente{
     @Column(length = 30, nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private Integer equipajeId;
-
-   //(Bidireccional) foren Key -> Pasaje
+    //(Bidireccional) foren Key -> Pasaje
     @OneToMany(mappedBy = "cliente")
     private List<Pasaje> pasaje;
 
+    //(Bidireccional) foren Key -> Equipaje
+    @OneToMany(mappedBy = "cliente")
+    private List<Equipaje> equipaje;
+
+    //Constru
     @JsonCreator
     public Cliente() {
     }
@@ -47,12 +49,6 @@ public class Cliente{
     }
 
     /**GET & SET */
-    public Integer getEquipajeId() {
-        return equipajeId;
-    }
-    public void setEquipajeId(Integer equipajeId) {
-        this.equipajeId = equipajeId;
-    }
     public Long getclienteId() {
         return clienteId;
     }

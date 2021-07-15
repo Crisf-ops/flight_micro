@@ -18,7 +18,6 @@ public class servicesPasaje {
     public ArrayList<Pasaje> obtPasaje(){
         return(ArrayList<Pasaje>)pasajeRespositori.findAll();
     }
-
     //Guardar Pasaje
     public Pasaje guardarPasaje(Pasaje pasaje){
         return pasajeRespositori.save(pasaje); 

@@ -26,7 +26,7 @@ public class servicesCliente {
     public Optional<Cliente>obtenerId(Long id){
         return clienteRepositori.findById(id);
     }
-    //Eliminar
+    //Eliminar cliente
     public boolean EliminarCliente(Long id){
         try {
             clienteRepositori.deleteById(id);

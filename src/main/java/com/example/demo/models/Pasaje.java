@@ -2,7 +2,6 @@ package com.example.demo.models;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 @Entity
 @Table(name = "Pasajes")
@@ -26,27 +25,21 @@ public class Pasaje {
     @JoinColumn(name = "clienteId")
     Cliente cliente;
 
-    
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-
+     //Construc
     public Pasaje() {
     }
-   
-
     public Pasaje(Cliente cliente) {
         this.cliente = cliente;
     }
 
 
     /**GET & SET */
+    public Cliente getCliente() {
+        return cliente;
+    }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
     public Long getIdpasaje() {
         return idpasaje;
     }

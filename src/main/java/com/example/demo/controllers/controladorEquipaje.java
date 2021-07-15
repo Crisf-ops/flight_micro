@@ -3,8 +3,8 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.demo.models.Cliente;
-import com.example.demo.services.servicesCliente;
+import com.example.demo.models.Equipaje;
+import com.example.demo.services.servicesEquipaje;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,33 +16,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/usuario")
-public class controladorCliente{
+@RequestMapping("/equipaje")
+public class controladorEquipaje {
     @Autowired
-    servicesCliente clienteServices;
+    servicesEquipaje equipajeServices;
 
     @GetMapping()
-    public ArrayList<Cliente> obtenerUsuario() {
-        return clienteServices.obtClientes();
+    public ArrayList<Equipaje> obtenerEquipaje(){
+        return equipajeServices.obtEquipaje();
     }
 
     @PostMapping()
-    public Cliente guardarUsuario(@RequestBody Cliente cliente) {
-        return this.clienteServices.guardarCliente(cliente);
+    public Equipaje guardarEquipaje(@RequestBody Equipaje equipaje){
+        return this.equipajeServices.guardarEquipaje(equipaje);
     }
-    
-    @GetMapping(path ="/{id}")
-    public Optional<Cliente> obtenerUsuarioPorId(@PathVariable("id") Long  id) {
-        return this.clienteServices.obtenerId(id);
+
+    @GetMapping(path = "/{id}")
+    public Optional<Equipaje> obtenerEquipajePorId(@PathVariable("id") Long id){
+        return this.obtenerEquipajePorId(id);
     }
-    
+
     @DeleteMapping(path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
-        boolean ok = this.clienteServices.EliminarCliente(id);
+        boolean ok = this.equipajeServices.eliminarEquipaje(id);
         if (ok) {
-            return "Se elimino el usuario con el id "+id;
+            return "Se elimino el equipaje con el id "+id;
         } else {
-            return "No se pudo eliminar el usuario con el id"+id;
+            return "No se pudo eliminar el equipaje con el id"+id;
         }
     }
 }
