@@ -28,7 +28,12 @@ public class controladorCliente{
 
     @PostMapping()
     public Cliente guardarUsuario(@RequestBody Cliente cliente) {
-        return this.clienteServices.guardarCliente(cliente);
+      //  try {
+            return this.clienteServices.guardarCliente(cliente);
+      //  } catch (Exception e) {
+
+      //  }
+        
     }
     
     @GetMapping(path ="/{id}")
