@@ -27,18 +27,30 @@ public class Vuelo {
     @JoinColumn(name = "pasajeId")
     Pasaje pasaje;
 
-    public Vuelo(Pasaje pasaje) {
-        this.pasaje = pasaje;
-    }
+    //Foren Key -> Itinerario
+    @ManyToOne
+    @JoinColumn(name = "itinerarioId")
+    Itinerario itinerario;
+
 
     //Constru
     public Vuelo() {
     }
-
-
-
+    public Vuelo(Pasaje pasaje) {
+        this.pasaje = pasaje;
+    }
+    public Vuelo(Itinerario itinerario) {
+        this.itinerario = itinerario;
+    }
 
     /**GET & SET */
+    public Itinerario getItinerario() {
+        return itinerario;
+    }
+
+    public void setItinerario(Itinerario itinerario) {
+        this.itinerario = itinerario;
+    }
     public Pasaje getPasaje() {
         return pasaje;
     }
