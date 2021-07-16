@@ -1,4 +1,5 @@
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\ServletInitializer.java
+C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\models\Destino.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\services\servicesPasaje.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\controllers\controladorCliente.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\controllers\controladorItinerario.java
@@ -17,8 +18,10 @@ C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\contro
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\controllers\controladorOrigen.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\models\Equipaje.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\repositorioes\repositoriesEquipaje.java
+C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\repositorioes\repositorioesDestino.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\models\Vuelo.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\repositorioes\repositoriesCliente.java
+C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\services\servicesDestino.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\services\servicesEquipaje.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\repositorioes\repositoriesPasaje.java
 C:\Users\Nolosedimetu\Documents\GitHub\Api\src\main\java\com\example\demo\models\Cliente.java
