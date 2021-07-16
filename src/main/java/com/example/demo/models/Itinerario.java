@@ -25,6 +25,10 @@ public class Itinerario {
     //(Bidireccional) foren Key -> Vuelo
     @OneToMany(mappedBy = "itinerario")
     private List<Vuelo> vuelo;
+
+    //(Bidireccional) foren Key -> Origen
+    @OneToMany(mappedBy = "itinerario")
+    private List<Origen> origen;
     
     //Constru
     public Itinerario() {
