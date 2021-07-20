@@ -1,0 +1,38 @@
+Usuario
+        "documento": 789456123,
+        "edad": 25,
+        "email": "renso@gmail.com",
+        "nombre": "renso",
+        "equipajeId": 420,
+        "telefono": 452035
+
+Equipaje
+        "peso":6,
+        "cliente":1
+
+Pasajes
+        "clase": "Vip",
+        "asiento": "B45",
+        "valor": 300000,
+        "cliente": 1
+
+Itinerario
+        "fecha":"2021-12-25",
+        "hora":"15:30:00"
+
+Origen
+        "aeropuerto": "Santa catalina",
+        "ciudad": "Medellin",
+        "itinerario": 1
+
+Destino
+        "aeropuerto": "Santa catalina",
+        "ciudad": "Medellin",
+        "itinerario": 1
+
+Vuelo
+        "capacidad": 50,
+        "fecha":"2021-10-05",
+        "hora":"14:10:00",
+        "pasaje":1,
+        "itinerario":1 
