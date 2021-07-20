@@ -33,11 +33,11 @@ public class Cliente{
     private String email;
 
     //(Bidireccional) foren Key -> Pasaje
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true)
     private List<Pasaje> pasaje;
 
     //(Bidireccional) foren Key -> Equipaje
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true)
     private List<Equipaje> equipaje;
 
     //Constru
@@ -47,7 +47,14 @@ public class Cliente{
     public Cliente(Long clienteId) {
         this.clienteId = clienteId;
     }
-
+    
+    public Cliente(String nombre, Integer edad, Integer telefono, Integer documento, String email) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.documento = documento;
+        this.email = email;
+    }
     /**GET & SET */
     public Long getclienteId() {
         return clienteId;

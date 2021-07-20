@@ -40,8 +40,13 @@ public class Pasaje {
     public Pasaje(Cliente cliente) {
         this.cliente = cliente;
     }
-
-
+    public Pasaje(String clase, String asiento, Integer valor, Cliente cliente) {
+        this.clase = clase;
+        this.asiento = asiento;
+        this.valor = valor;
+        this.cliente = cliente;
+    }
+    
     /**GET & SET */
     public Cliente getCliente() {
         return cliente;
