@@ -2,28 +2,65 @@ package com.example.demo.models;
 
 
 
+import java.util.List;
+
+
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 @Entity
-@Table(name = "Cliente")
+@Table(name = "Clientes")
 public class Cliente{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
-    private Long idcliente;
+    private Long clienteId;
 
+    @Column(length = 30, nullable = false)
     private String nombre;
-    private Integer edad;
-    private Integer telefono;
-    private Integer documento;
-    private String email;
-    private Integer idequipaje;
 
-    public Long getIdcliente() {
-        return idcliente;
+    @Column(nullable = false)
+    private Integer edad;
+
+    @Column(nullable = false)
+    private Integer telefono;
+
+    @Column(nullable = false)
+    private Integer documento;
+
+    @Column(length = 30, nullable = false)
+    private String email;
+
+    //(Bidireccional) foren Key -> Pasaje
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true)
+    private List<Pasaje> pasaje;
+
+    //(Bidireccional) foren Key -> Equipaje
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true)
+    private List<Equipaje> equipaje;
+
+    //Constru
+    @JsonCreator
+    public Cliente() {
     }
-    public void setIdcliente(Long idcliente) {
-        this.idcliente = idcliente;
+    public Cliente(Long clienteId) {
+        this.clienteId = clienteId;
+    }
+    
+    public Cliente(String nombre, Integer edad, Integer telefono, Integer documento, String email) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.documento = documento;
+        this.email = email;
+    }
+    /**GET & SET */
+    public Long getclienteId() {
+        return clienteId;
+    }
+    public void setclienteId(Long clienteId) {
+        this.clienteId = clienteId;
     }
     public String getNombre() {
         return nombre;
@@ -54,12 +91,6 @@ public class Cliente{
     }
     public void setEmail(String email) {
         this.email = email;
-    }
-    public Integer getIdequipaje() {
-        return idequipaje;
-    }
-    public void setIdequipaje(Integer idequipaje) {
-        this.idequipaje = idequipaje;
     }
 
 }

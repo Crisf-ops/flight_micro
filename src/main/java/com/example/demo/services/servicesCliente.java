@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.models.Cliente;
@@ -22,11 +23,29 @@ public class servicesCliente {
     public Cliente guardarCliente(Cliente cliente){
         return clienteRepositori.save(cliente);
     }
+    
     //Buscar por ID cliente
-    public Optional<Cliente>obtenerId(Long id){
-        return clienteRepositori.findById(id);
+    // public Optional<Cliente>obtenerId(Long id){
+    //     return clienteRepositori.findById(id);
+    // }
+    
+    //Buscar por Identificacion
+    public List<Cliente> obtIdentificacion(Integer documento){
+        return clienteRepositori.findByDocumento(documento);
     }
-    //Eliminar
+    //Actualizar
+    public Cliente actualizarCliente(Cliente cliente,Long id){
+        Optional<Cliente> optional = clienteRepositori.findById(cliente.getclienteId());
+
+        Cliente existenteCliente = optional.get();
+        existenteCliente.setEdad(cliente.getEdad());
+        existenteCliente.setEmail(cliente.getEmail());
+        existenteCliente.setNombre(cliente.getNombre());
+        existenteCliente.setTelefono(cliente.getTelefono());
+
+        return clienteRepositori.save(existenteCliente);
+    }
+    //Eliminar cliente
     public boolean EliminarCliente(Long id){
         try {
             clienteRepositori.deleteById(id);
