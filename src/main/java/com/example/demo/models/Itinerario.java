@@ -1,7 +1,7 @@
 package com.example.demo.models;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,10 +15,10 @@ public class Itinerario {
     private Long itinerarioId;
 
     @Column(nullable = false)
-    private Date fecha;
+    private LocalDate fecha;
 
     @Column(nullable = false)
-    private Time hora;
+    private LocalTime hora;
 
 
 
@@ -40,7 +40,11 @@ public class Itinerario {
     public Itinerario(Long itinerarioId) {
         this.itinerarioId = itinerarioId;
     }
-
+    
+    public Itinerario(LocalDate fecha, LocalTime hora) {
+        this.fecha = fecha;
+        this.hora = hora;
+    }
     /**GET & SET */
     public Long getItinerarioId() {
         return itinerarioId;
@@ -50,19 +54,19 @@ public class Itinerario {
         this.itinerarioId = itinerarioId;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
     

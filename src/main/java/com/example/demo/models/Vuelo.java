@@ -1,7 +1,7 @@
 package com.example.demo.models;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.*;
 
@@ -17,10 +17,10 @@ public class Vuelo {
     private Integer capacidad;
 
     @Column(nullable = false)
-    private Date fecha;
+    private LocalDate fecha;
 
     @Column(nullable = false)
-    private Time hora;
+    private LocalTime hora;
 
     //Foren Key -> Vuelo
     @ManyToOne
@@ -42,7 +42,14 @@ public class Vuelo {
     public Vuelo(Itinerario itinerario) {
         this.itinerario = itinerario;
     }
-
+    
+    public Vuelo(Integer capacidad, LocalDate fecha, LocalTime hora, Pasaje pasaje, Itinerario itinerario) {
+        this.capacidad = capacidad;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.pasaje = pasaje;
+        this.itinerario = itinerario;
+    }
     /**GET & SET */
     public Itinerario getItinerario() {
         return itinerario;
@@ -72,19 +79,19 @@ public class Vuelo {
         this.capacidad = capacidad;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
     

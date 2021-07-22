@@ -2,11 +2,10 @@ package com.example.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.example.demo.models.Cliente;
-import com.example.demo.models.Pasaje;
-import com.example.demo.repositorioes.repositoriesCliente;
+import java.util.List;
 
-import com.example.demo.repositorioes.repositoriesPasaje;
+import com.example.demo.models.Cliente;
+import com.example.demo.repositorioes.repositoriesCliente;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 public class ClienteJpaTests {
     @Autowired
     private repositoriesCliente repo;
-    @Autowired
-    repositoriesPasaje repoPasaje;
 
     @Test
     public void guardarCliente(){
@@ -48,12 +45,15 @@ public class ClienteJpaTests {
     }
 
     @Test
-    public void validarClienteIdentificacion() {
+    public void buscarClienteIdentificacion() {
         Cliente cliente = new Cliente("cristian", 24, 754210, 10123457, "cris@gmail.com");
-        Cliente retorno = repo.save(cliente);
-        repo.save(cliente);
         
-        assertEquals(retorno.getDocumento(), cliente.getDocumento());
+        repo.save(cliente);
+
+        List<Cliente> listCliente = repo.findByDocumento(10123457);
+        for (Cliente p: listCliente){
+            assertEquals(10123457, p.getDocumento());
+        }
     }
 
     @Test
@@ -71,17 +71,5 @@ public class ClienteJpaTests {
         repo.flush();
 
         assertEquals(4, repo.findAll().size());
-    }
-
-    @Test
-    public void forenKeyPasaje() {
-        Cliente cliente = new Cliente("cristian", 24, 754210, 10123457, "cris@gmail.com");
-        cliente = repo.save(cliente);
-        Pasaje pasaje = new Pasaje("Vip","B45",300000,cliente);
-        pasaje = repoPasaje.save(pasaje);
-
-        assertEquals(cliente.getclienteId(),pasaje.getpasajeId());
-        assertEquals(1, repo.findAll().size());
-        
     }
 }
