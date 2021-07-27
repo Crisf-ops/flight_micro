@@ -23,18 +23,13 @@ public class servicesCliente {
     public Cliente guardarCliente(Cliente cliente){
         return clienteRepositori.save(cliente);
     }
-    
-    //Buscar por ID cliente
-    // public Optional<Cliente>obtenerId(Long id){
-    //     return clienteRepositori.findById(id);
-    // }
-    
+        
     //Buscar por Identificacion
-    public List<Cliente> obtIdentificacion(Integer documento){
+    public List<Cliente> obtIdentificacion(String documento){
         return clienteRepositori.findByDocumento(documento);
     }
     //Actualizar
-    public Cliente actualizarCliente(Cliente cliente,Long id){
+    public Cliente actualizarCliente(Cliente cliente){
         Optional<Cliente> optional = clienteRepositori.findById(cliente.getclienteId());
 
         Cliente existenteCliente = optional.get();

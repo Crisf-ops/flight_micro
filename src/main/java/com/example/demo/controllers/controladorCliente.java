@@ -28,8 +28,15 @@ public class controladorCliente{
     }
     //Buscar por identificacion
     @GetMapping("/query")
-    public List<Cliente> obtnerDocumentoCliente(@RequestParam("documento") Integer documento){
-        return this.clienteServices.obtIdentificacion(documento);
+    public List<Cliente> obtnerDocumentoCliente(@RequestParam("documento") String documento){
+        
+        if(documento.equals("")){
+            return this.obtenerUsuario();
+        }            
+        else{
+            return this.clienteServices.obtIdentificacion(documento);
+        }
+            
     }
 
     /*
@@ -39,13 +46,13 @@ public class controladorCliente{
     }*/
 
     //Actualizacion
-    @PutMapping(path = "/{id}")
-    public Cliente actualizarCliente(@RequestBody Cliente cliente, @PathVariable ("id") Long id){
-        return this.clienteServices.actualizarCliente(cliente,id);
+    @PutMapping(path = "actualizar/{id}")
+    public Cliente actualizarCliente(@RequestBody Cliente cliente){
+        return this.clienteServices.actualizarCliente(cliente);
     }
 
     //Eliminar
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "eliminar/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.clienteServices.EliminarCliente(id);
         if (ok) {

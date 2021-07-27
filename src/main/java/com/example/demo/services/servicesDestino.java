@@ -18,7 +18,7 @@ public class servicesDestino {
     public ArrayList<Destino> obtDestino(){
         return (ArrayList<Destino>) destinoRespories.findAll();
     }
-    //Guardar cliente
+    //Guardar
     public Destino guardarDestino(Destino destino){
         return destinoRespories.save(destino);
     }

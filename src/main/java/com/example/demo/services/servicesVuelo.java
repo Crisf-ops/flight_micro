@@ -1,6 +1,8 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
+import java.util.List;
+// import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.models.Vuelo;
@@ -34,5 +36,9 @@ public class servicesVuelo {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public List<Vuelo> test(String ref){
+        return vueloRepositori.findByRef(ref);
     }
 }

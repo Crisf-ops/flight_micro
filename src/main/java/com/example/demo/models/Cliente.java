@@ -26,8 +26,8 @@ public class Cliente{
     @Column(nullable = false)
     private Integer telefono;
 
-    @Column(nullable = false)
-    private Integer documento;
+    @Column(nullable = false, unique = true)
+    private String documento;
 
     @Column(length = 30, nullable = false)
     private String email;
@@ -40,6 +40,13 @@ public class Cliente{
     @OneToMany(mappedBy = "cliente", orphanRemoval = true)
     private List<Equipaje> equipaje;
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Vuelo> vuelo;
+    // @ManyToOne
+    // @JoinColumn(name = "vueloId")
+    // Vuelo
+
+
     //Constru
     @JsonCreator
     public Cliente() {
@@ -48,7 +55,7 @@ public class Cliente{
         this.clienteId = clienteId;
     }
     
-    public Cliente(String nombre, Integer edad, Integer telefono, Integer documento, String email) {
+    public Cliente(String nombre, Integer edad, Integer telefono, String documento, String email) {
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
@@ -80,10 +87,10 @@ public class Cliente{
     public void setTelefono(Integer telefono) {
         this.telefono = telefono;
     }
-    public Integer getDocumento() {
+    public String getDocumento() {
         return documento;
     }
-    public void setDocumento(Integer documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
     public String getEmail() {

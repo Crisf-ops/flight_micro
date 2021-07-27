@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface repositoriesCliente extends JpaRepository<Cliente,Long>{
     
-    List<Cliente> findByDocumento(Integer documento);
+    List<Cliente> findByDocumento(String documento);
 
 }

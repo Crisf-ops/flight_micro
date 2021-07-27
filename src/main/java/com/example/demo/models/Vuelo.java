@@ -22,6 +22,16 @@ public class Vuelo {
     @Column(nullable = false)
     private LocalTime hora;
 
+    @Column(nullable = false)
+    private String ref;
+
+    public String getRef() {
+        return ref;
+    }
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
     //Foren Key -> Vuelo
     @ManyToOne
     @JoinColumn(name = "pasajeId")
@@ -32,6 +42,11 @@ public class Vuelo {
     @JoinColumn(name = "itinerarioId")
     Itinerario itinerario;
 
+    @ManyToOne
+    @JoinColumn(name = "clienteId")
+    Cliente cliente;
+    // @OneToMany(mappedBy = "vuelo")
+    // private List<Cliente> cliente;
 
     //Constru
     public Vuelo() {
@@ -43,12 +58,13 @@ public class Vuelo {
         this.itinerario = itinerario;
     }
     
-    public Vuelo(Integer capacidad, LocalDate fecha, LocalTime hora, Pasaje pasaje, Itinerario itinerario) {
+    public Vuelo(Integer capacidad, LocalDate fecha, LocalTime hora, Pasaje pasaje, Itinerario itinerario, String ref) {
         this.capacidad = capacidad;
         this.fecha = fecha;
         this.hora = hora;
         this.pasaje = pasaje;
         this.itinerario = itinerario;
+        this.ref = ref;
     }
     /**GET & SET */
     public Itinerario getItinerario() {

@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
+// import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.models.Vuelo;
@@ -13,7 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/vuelo")
@@ -45,4 +50,10 @@ public class controladorVuelo {
             return "No se pudo eliminar el vuelo con el id"+id;
         }
     }
+
+    @GetMapping("/query")
+    public List<Vuelo> obtref(@RequestParam("ref") String ref) {
+        return vueloServices.test(ref);
+    }
+    
 }
